@@ -198,7 +198,7 @@ Now call the WebAuthn API on the client side:
 import * as webauthnJson from "@github/webauthn-json";
 
 // Make the call that returns the credentialCreateJson above
-const credentialCreateOptions = await fetch(/* ... */);
+const credentialCreateOptions = await fetch(/* ... */).then(resp => resp.json());
 
 // Call WebAuthn ceremony using webauthn-json wrapper
 const publicKeyCredential = await webauthnJson.create(credentialCreateOptions);
@@ -278,7 +278,7 @@ Now call the WebAuthn API on the client side:
 import * as webauthnJson from "@github/webauthn-json";
 
 // Make the call that returns the credentialGetJson above
-const credentialGetOptions = await fetch(/* ... */);
+const credentialGetOptions = await fetch(/* ... */).then(resp => resp.json());
 
 // Call WebAuthn ceremony using webauthn-json wrapper
 const publicKeyCredential = await webauthnJson.get(credentialGetOptions);
